@@ -1,0 +1,325 @@
+@import 'imports/functions',
+'imports/variable';
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+* {
+    @include reset();
+    font-family: "Manrope", sans-serif;
+}
+
+body {
+    background-color: $backgrond;
+    overflow: hidden;
+    z-index: 1;
+
+    #circles {
+        .blur:nth-child(1) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: .5;
+            z-index: -1;
+        }
+
+        .blur:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: .5;
+            z-index: -1;
+        }
+    }
+}
+
+.nav-header {
+    @include flex(row, space-between, center, 0);
+    height: 15vh;
+    width: 100%;
+    padding: 0 5%;
+    position: relative;
+
+    .nav-logo {
+        width: 2.75rem;
+        height: 3.12rem;
+        user-select: none;
+    }
+
+    .nav-menu {
+        @include flex(row, center, center, 0 2.5rem);
+        list-style: none;
+
+        li {
+            a {
+                color: $text-color;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1.1rem;
+
+                &:hover {
+                    border-bottom: .2rem solid $button;
+                    padding: 0 0 .5rem 0;
+                }
+            }
+        }
+    }
+
+    .nav-button-mobile {
+        @include flex(column, center, end, .1rem);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        height: 3.5rem;
+        width: 4rem;
+        border-radius: .8rem;
+        padding: 0 .7rem 0 0;
+        cursor: pointer;
+        display: none;
+        z-index: 3;
+
+        .line:nth-child(1) {
+            background-color: $button;
+            width: 2.1rem;
+            height: .2rem;
+            margin: .2rem 0;
+        }
+
+        .line:nth-child(2) {
+            background-color: $button;
+            width: 1.5rem;
+            height: .2rem;
+            margin: .2rem 0;
+        }
+    }
+
+    .nav-menu-mobile {
+        @include flex(column, center, center, 4rem 0);
+        position: absolute;
+        top: 0;
+        right: 0;
+        list-style: none;
+        background-color: $backgrond;
+        height: 100vh;
+        width: 100%;
+        border-radius: 1rem;
+        padding: 0 2rem;
+        z-index: 2;
+        display: none;
+
+        li {
+            a {
+                color: $text-color;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1.3rem;
+                opacity: 1;
+            }
+        }
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    .nav-menu:has(.item:hover) .item:not(:hover),
+    .nav-menu-mobile:has(.item:hover) .item:not(:hover) {
+        opacity: .2;
+    }
+
+    .nav-button {
+        background-color: transparent;
+        border: .2rem solid $button;
+        color: $text-color;
+        height: 3.3rem;
+        width: 15rem;
+        border-radius: 1rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $button;
+        }
+    }
+}
+
+#main-section {
+    @include flex(column, end, center, 0);
+    height: 85vh;
+    width: 100%;
+    position: relative;
+
+    .sec-title {
+        @include flex(column, center, center, 0);
+        position: absolute;
+        top: 0;
+        line-height: 5.5rem;
+
+        h1 {
+            color: $text-color;
+            font-size: 5.5rem;
+            font-weight: 900;
+
+            animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-center both;
+        }
+
+        h2 {
+            color: $backgrond;
+            font-size: 4.5rem;
+            font-weight: 800;
+            text-shadow: -1px -1px 0 $button, 1px -1px 0 $button, -1px 1px 0 $button, 1px 1px 0 $button;
+
+            animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-center both;
+        }
+    }
+
+    .sec-content {
+        display: none;
+
+        p {
+            color: $text-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+    }
+
+    .sec-button {
+        @include flex(row, center, center, 1rem);
+        background-color: transparent;
+        border: .2rem solid $button;
+        color: $text-color;
+        height: 3.3rem;
+        width: 15rem;
+        border-radius: .7rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        display: none;
+    }
+
+    .sec-image {
+        @include flex(column, center, center, 0);
+        height: 65%;
+        width: 30%;
+        position: relative;
+
+        .pic:nth-child(1) {
+            position: absolute;
+            top: 6rem;
+            left: -16rem;
+            width: 53%;
+            z-index: 1;
+
+            animation: fadeInLeft;
+            animation-duration: 1.55s;
+        }
+
+        .pic:nth-child(2) {
+            position: absolute;
+            top: 6rem;
+            right: -16rem;
+            width: 53%;
+            z-index: 1;
+
+            animation: fadeInRight;
+            animation-duration: 1.55s;
+        }
+
+        .pic:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+
+            animation: fadeInUp;
+            animation-duration: 2s;
+        }
+    }
+}
+
+// animation
+
+@keyframes square-in-center {
+    from {
+        clip-path: inset(100% 100% 100% 100%);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+@media screen and (max-width: 429px) {
+
+    .nav-header {
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-button-mobile {
+            display: flex;
+
+            .line:nth-child(1) {
+                display: block;
+            }
+
+            .line:nth-child(2) {
+                display: block;
+            }
+        }
+
+        .nav-button {
+            display: none;
+        }
+    }
+
+    #main-section {
+        @include flex(column, end, center, 2rem);
+        padding: 0 5%;
+
+        .sec-title {
+            display: none;
+        }
+
+        .sec-content {
+            display: block;
+            text-align: center;
+
+            p {
+                font-size: 2rem;
+            }
+        }
+
+        .sec-button {
+            display: block;
+        }
+
+        .sec-title {
+            position: relative;
+        }
+
+        .sec-image {
+            width: 100%;
+            height: 65%;
+
+            .pic:nth-child(1) {
+                position: absolute;
+                top: -1.5rem;
+                left: -4rem;
+                rotate: 60deg;
+            }
+
+            .pic:nth-child(2) {
+                position: absolute;
+                top: -1.5rem;
+                right: -4rem;
+                rotate: -50deg;
+            }
+        }
+    }
+}
