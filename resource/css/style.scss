@@ -148,6 +148,7 @@ body {
     @include flex(column, end, center, 0);
     height: 85vh;
     width: 100%;
+    overflow: hidden;
     position: relative;
 
     .sec-title {
