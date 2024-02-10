@@ -209,7 +209,6 @@ main #main-section .sec-image {
   height: 65%;
   width: 30%;
   position: relative;
-  overflow: hidden;
 }
 main #main-section .sec-image .pic:nth-child(1) {
   position: absolute;
@@ -321,6 +320,12 @@ main .blur:nth-child(3) {
     right: -4rem;
     rotate: -50deg;
   }
+  main .blur:nth-child(2) {
+    display: none;
+  }
+  main .blur:nth-child(3) {
+    display: none;
+  }
 }
 @media screen and (max-width: 429px) {
   #nav-header .nav-menu {
@@ -377,5 +382,11 @@ main .blur:nth-child(3) {
     top: -1.5rem;
     right: -4rem;
     rotate: -50deg;
+  }
+  main .blur:nth-child(2) {
+    display: none;
+  }
+  main .blur:nth-child(3) {
+    display: none;
   }
 }/*# sourceMappingURL=style.css.map */

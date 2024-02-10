@@ -203,7 +203,6 @@ main {
             height: 65%;
             width: 30%;
             position: relative;
-            overflow: hidden;
     
             .pic:nth-child(1) {
                 position: absolute;
@@ -296,6 +295,7 @@ main {
     }
 
     main {
+        
         #main-section {
             @include flex(column, end, center, 2rem);
             padding: 0 5%;
@@ -339,6 +339,14 @@ main {
                     rotate: -50deg;
                 }
             }
+        }
+
+        .blur:nth-child(2) {
+            display: none;
+        }
+
+        .blur:nth-child(3) {
+            display: none;
         }
     }
 }
@@ -369,6 +377,7 @@ main {
     }
 
     main {
+
         #main-section {
             @include flex(column, end, center, 2rem);
             padding: 0 5%;
@@ -412,6 +421,14 @@ main {
                     rotate: -50deg;
                 }
             }
+        }
+
+        .blur:nth-child(2) {
+            display: none;
+        }
+
+        .blur:nth-child(3) {
+            display: none;
         }
     }
 }
