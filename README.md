@@ -12,9 +12,13 @@
 - ``SASS``
 - ``JAVASCRIPT``
 
-## :paperclip: font:
+## :paperclip: font / icon / animation :
 
 https://fonts.google.com/specimen/Manrope?query=manrope
+
+https://animate.style/
+
+https://www.transition.style/#in:circle:hesitate
 
 <p align="center">
   Challenge by <a href="https://www.rocketseat.com.br/assinatura" target="_blank">RocketSeat</a>.
