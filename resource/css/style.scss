@@ -10,26 +10,7 @@
 
 body {
     background-color: $backgrond;
-    overflow-x: hidden;
-    z-index: 1;
-
-    #circles {
-        .blur:nth-child(1) {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            opacity: .5;
-            z-index: -1;
-        }
-
-        .blur:nth-child(2) {
-            position: absolute;
-            top: 0;
-            right: 0;
-            opacity: .5;
-            z-index: -1;
-        }
-    }
+    overflow: hidden;
 }
 
 #nav-header {
@@ -156,101 +137,125 @@ body {
     }
 }
 
-#main-section {
-    @include flex(column, end, center, 0);
+main {
     height: 85vh;
     width: 100%;
-    overflow: hidden;
-    position: relative;
 
-    .sec-title {
-        @include flex(column, center, center, 0);
+    #main-section {
+        @include flex(column, end, center, 0);
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    
+        .sec-title {
+            @include flex(column, center, center, 0);
+            position: absolute;
+            top: 0;
+            line-height: 5.5rem;
+    
+            h1 {
+                color: $text-color;
+                font-size: 5.5rem;
+                font-weight: 900;
+    
+                animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-center both;
+            }
+    
+            h2 {
+                color: $backgrond;
+                font-size: 4.5rem;
+                font-weight: 800;
+                text-shadow: -1px -1px 0 $button, 1px -1px 0 $button, -1px 1px 0 $button, 1px 1px 0 $button;
+    
+                animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-center both;
+            }
+        }
+    
+        .sec-content {
+            display: none;
+    
+            p {
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-top: 2rem;
+            }
+        }
+    
+        .sec-button {
+            @include flex(row, center, center, 1rem);
+            background-color: transparent;
+            border: .2rem solid $button;
+            color: $text-color;
+            height: 3.3rem;
+            width: 15rem;
+            border-radius: .7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: none;
+        }
+    
+        .sec-image {
+            @include flex(column, center, center, 0);
+            height: 65%;
+            width: 30%;
+            position: relative;
+            overflow: hidden;
+    
+            .pic:nth-child(1) {
+                position: absolute;
+                top: 6rem;
+                left: -16rem;
+                width: 53%;
+                z-index: 1;
+    
+                animation: fadeInLeft;
+                animation-duration: 1.55s;
+            }
+    
+            .pic:nth-child(2) {
+                position: absolute;
+                top: 6rem;
+                right: -16rem;
+                width: 53%;
+                z-index: 1;
+    
+                animation: fadeInRight;
+                animation-duration: 1.55s;
+            }
+    
+            .pic:nth-child(3) {
+                position: absolute;
+                bottom: 0;
+                left: 0 auto;
+                width: 75%;
+                z-index: 1;
+    
+                animation: fadeInUp;
+                animation-duration: 2s;
+            }
+        }
+    }
+
+    .blur:nth-child(2) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        opacity: .5;
+        z-index: -1;
+        border: .2re solid $button;
+    }
+
+    .blur:nth-child(3) {
         position: absolute;
         top: 0;
-        line-height: 5.5rem;
-
-        h1 {
-            color: $text-color;
-            font-size: 5.5rem;
-            font-weight: 900;
-
-            animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-center both;
-        }
-
-        h2 {
-            color: $backgrond;
-            font-size: 4.5rem;
-            font-weight: 800;
-            text-shadow: -1px -1px 0 $button, 1px -1px 0 $button, -1px 1px 0 $button, 1px 1px 0 $button;
-
-            animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-center both;
-        }
-    }
-
-    .sec-content {
-        display: none;
-
-        p {
-            color: $text-color;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 2rem;
-        }
-    }
-
-    .sec-button {
-        @include flex(row, center, center, 1rem);
-        background-color: transparent;
-        border: .2rem solid $button;
-        color: $text-color;
-        height: 3.3rem;
-        width: 15rem;
-        border-radius: .7rem;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        display: none;
-    }
-
-    .sec-image {
-        @include flex(column, center, center, 0);
-        height: 65%;
-        width: 30%;
-        position: relative;
-
-        .pic:nth-child(1) {
-            position: absolute;
-            top: 6rem;
-            left: -16rem;
-            width: 53%;
-            z-index: 1;
-
-            animation: fadeInLeft;
-            animation-duration: 1.55s;
-        }
-
-        .pic:nth-child(2) {
-            position: absolute;
-            top: 6rem;
-            right: -16rem;
-            width: 53%;
-            z-index: 1;
-
-            animation: fadeInRight;
-            animation-duration: 1.55s;
-        }
-
-        .pic:nth-child(3) {
-            position: absolute;
-            bottom: 0;
-            left: 0 auto;
-            width: 75%;
-            z-index: 1;
-
-            animation: fadeInUp;
-            animation-duration: 2s;
-        }
+        right: 0;
+        opacity: .5;
+        z-index: -1;
+        border: .2re solid $button;
     }
 }
 
@@ -290,47 +295,49 @@ body {
         }
     }
 
-    #main-section {
-        @include flex(column, end, center, 2rem);
-        padding: 0 5%;
-
-        .sec-title {
-            display: none;
-        }
-
-        .sec-content {
-            display: block;
-            text-align: center;
-
-            p {
-                font-size: 2rem;
+    main {
+        #main-section {
+            @include flex(column, end, center, 2rem);
+            padding: 0 5%;
+    
+            .sec-title {
+                display: none;
             }
-        }
-
-        .sec-button {
-            display: block;
-        }
-
-        .sec-title {
-            position: relative;
-        }
-
-        .sec-image {
-            width: 100%;
-            height: 65%;
-
-            .pic:nth-child(1) {
-                position: absolute;
-                top: 0 auto;
-                left: -4rem;
-                rotate: 60deg;
+    
+            .sec-content {
+                display: block;
+                text-align: center;
+    
+                p {
+                    font-size: 2rem;
+                }
             }
-
-            .pic:nth-child(2) {
-                position: absolute;
-                top: 0 auto;
-                right: -4rem;
-                rotate: -50deg;
+    
+            .sec-button {
+                display: block;
+            }
+    
+            .sec-title {
+                position: relative;
+            }
+    
+            .sec-image {
+                width: 100%;
+                height: 65%;
+    
+                .pic:nth-child(1) {
+                    position: absolute;
+                    top: 0 auto;
+                    left: -4rem;
+                    rotate: 60deg;
+                }
+    
+                .pic:nth-child(2) {
+                    position: absolute;
+                    top: 0 auto;
+                    right: -4rem;
+                    rotate: -50deg;
+                }
             }
         }
     }
@@ -361,47 +368,49 @@ body {
         }
     }
 
-    #main-section {
-        @include flex(column, end, center, 2rem);
-        padding: 0 5%;
-
-        .sec-title {
-            display: none;
-        }
-
-        .sec-content {
-            display: block;
-            text-align: center;
-
-            p {
-                font-size: 2rem;
+    main {
+        #main-section {
+            @include flex(column, end, center, 2rem);
+            padding: 0 5%;
+    
+            .sec-title {
+                display: none;
             }
-        }
-
-        .sec-button {
-            display: block;
-        }
-
-        .sec-title {
-            position: relative;
-        }
-
-        .sec-image {
-            width: 100%;
-            height: 65%;
-
-            .pic:nth-child(1) {
-                position: absolute;
-                top: -1.5rem;
-                left: -4rem;
-                rotate: 60deg;
+    
+            .sec-content {
+                display: block;
+                text-align: center;
+    
+                p {
+                    font-size: 2rem;
+                }
             }
-
-            .pic:nth-child(2) {
-                position: absolute;
-                top: -1.5rem;
-                right: -4rem;
-                rotate: -50deg;
+    
+            .sec-button {
+                display: block;
+            }
+    
+            .sec-title {
+                position: relative;
+            }
+    
+            .sec-image {
+                width: 100%;
+                height: 65%;
+    
+                .pic:nth-child(1) {
+                    position: absolute;
+                    top: -1.5rem;
+                    left: -4rem;
+                    rotate: 60deg;
+                }
+    
+                .pic:nth-child(2) {
+                    position: absolute;
+                    top: -1.5rem;
+                    right: -4rem;
+                    rotate: -50deg;
+                }
             }
         }
     }
